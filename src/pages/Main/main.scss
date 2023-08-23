@@ -1,0 +1,33 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .main__user__about {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    h1 {
+      font-size: 64px;
+      font-weight: 900;
+      color: #ff8303;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    h2 {
+      font-size: 40px;
+      font-weight: 700;
+      color: #f0e3ca;
+    }
+    p {
+      max-width: 448px;
+      font-size: 20px;
+      font-weight: 400;
+      color: #f0e3ca;
+    }
+  }
+  .main__user__image {
+    background-image: url(/Illustrations.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+}

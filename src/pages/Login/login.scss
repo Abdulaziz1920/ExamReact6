@@ -1,0 +1,48 @@
+.forms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw; // Изменим ширину на 100vw, чтобы форма занимала всю ширину окна
+  height: 100vh; // Изменим высоту на 100vh, чтобы форма занимала всю высоту окна
+  h1 {
+    padding-bottom: 15px;
+    font-size: 64px;
+    font-weight: 900;
+    color: #ff8303;
+    font-family: "Inconsolata";
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+
+    input {
+      background-color: transparent;
+      font-family: "Inconsolata";
+      margin-bottom: 20px;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 15px;
+      border: 1px solid #32312e;
+      color: white;
+      font-size: 16px;
+    }
+
+    button {
+      font-size: 16px;
+      margin-top: 15px;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 4px;
+      background: #21201d;
+      border: 1px solid #32312e;
+      cursor: pointer;
+      color: white;
+      width: 100%;
+      font-family: "Inconsolata";
+    }
+  }
+}
