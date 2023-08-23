@@ -10,6 +10,11 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import MyWorks from "./pages/Works";
 import isAuth from "./states";
+import Dashboard from "./pages/Admin/Dashboard/Dashboard";
+import AdminSkills from "./pages/Admin/Skills";
+import AdminEducation from "./pages/Admin/Education";
+import AdminExperinces from "./pages/Admin/Experiences";
+import AdminWork from "./pages/Admin/Works";
 
 function App() {
   const { isAuthenticated } = isAuth();
@@ -18,7 +23,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={isAuthenticated ? <Navigate to="/main" /> : <Login />}
+          element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login />}
         />
         <Route path="/" element={<Layout />}>
           <Route path="main" element={<Main />} />
@@ -29,6 +34,12 @@ function App() {
           <Route path="education" element={<Education />} />
           <Route path="messages" element={<Messages />} />
           <Route path="contact" element={<Contact />} />
+        </Route>
+        <Route path="/" element={<Dashboard />}>
+          <Route path="dashboard" element={<AdminSkills />} />
+          <Route path="admin/education" element={<AdminEducation />} />
+          <Route path="admin/experiences" element={<AdminExperinces />} />
+          <Route path="admin/work" element={<AdminWork />} />
         </Route>
       </Routes>
     </BrowserRouter>

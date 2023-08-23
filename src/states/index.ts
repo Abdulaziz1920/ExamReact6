@@ -5,6 +5,7 @@ import Login from "../types";
 import { NavigateFunction } from "react-router-dom";
 import TOKEN from "../constants";
 
+
 interface AuthType {
   isAuthenticated: boolean;
   login: (data: Login, navigate: NavigateFunction) => void;
@@ -18,7 +19,7 @@ const isAuth = create<AuthType>((set) => ({
       const res = await request.post("auth/login", data);
       Cookies.set(TOKEN, res.data.token); // Сохранение токена в Cookie
       set({ isAuthenticated: true });
-      navigate("/admin/dashboard");
+      navigate("/dashboard");
     } catch (error) {
       console.log("Ошибка отправки данных на сервер");
     }

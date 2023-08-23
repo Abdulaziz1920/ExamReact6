@@ -16,7 +16,7 @@ interface typeSkills {
 
 function Work() {
   const getData = async () => {
-    const { data } = await request("portfolios?limit=12");
+    const { data } = await request("portfolios");
     return data.data;
   };
 

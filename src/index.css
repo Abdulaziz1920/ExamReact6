@@ -11,12 +11,173 @@
   box-sizing: border-box;
 }
 
+:where(.css-dev-only-do-not-override-17a39f8).ant-layout .ant-layout-header,
+:where(.css-dev-only-do-not-override-17a39f8).ant-layout.ant-layout-footer {
+  background-color: #21201d !important;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8)[class^="ant-layout"]
+  [class^="ant-layout"],
+:where(.css-dev-only-do-not-override-17a39f8)[class*=" ant-layout"]
+  [class^="ant-layout"],
+:where(.css-dev-only-do-not-override-17a39f8)[class^="ant-layout"]
+  [class*=" ant-layout"],
+:where(.css-dev-only-do-not-override-17a39f8)[class*=" ant-layout"]
+  [class*=" ant-layout"] {
+  background-color: #21201d !important;
+  font-family: "Inconsolata" !important;
+}
 body {
-  font-family: "Inconsolata";
+  font-family: "Inconsolata" !important;
   background-color: #21201d;
   user-select: none;
 }
 
+.ant-layout-content {
+  margin: 0 !important;
+  height: calc(100vh - 64px);
+  font-family: "Inconsolata" !important;
+  overflow: scroll;
+}
+
+.category-image .ant-upload-select {
+  width: 100% !important;
+  font-family: "Inconsolata" !important;
+}
+
+.fls {
+  max-width: 200px;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 900;
+  color: #ff8303;
+  text-align: center;
+  font-family: "Inconsolata" !important;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8)[class^="ant-layout"]
+  [class^="ant-layout"],
+:where(.css-dev-only-do-not-override-17a39f8)[class*=" ant-layout"]
+  [class^="ant-layout"],
+:where(.css-dev-only-do-not-override-17a39f8)[class^="ant-layout"]
+  [class*=" ant-layout"],
+:where(.css-dev-only-do-not-override-17a39f8)[class*=" ant-layout"]
+  [class*=" ant-layout"] {
+  border-right: 1px solid white;
+  font-family: "Inconsolata" !important;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-btn.ant-btn-icon-only {
+  display: none;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-menu-dark .ant-menu-item a,
+:where(.css-dev-only-do-not-override-17a39f8).ant-menu-dark
+  > .ant-menu
+  .ant-menu-item
+  a,
+:where(.css-dev-only-do-not-override-17a39f8).ant-menu-dark
+  .ant-menu-item
+  a:hover,
+:where(.css-dev-only-do-not-override-17a39f8).ant-menu-dark
+  > .ant-menu
+  .ant-menu-item
+  a:hover {
+  font-size: 20px;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-pagination
+  .ant-pagination-disabled
+  .ant-pagination-item-link,
+:where(.css-dev-only-do-not-override-17a39f8).ant-pagination
+  .ant-pagination-disabled:hover
+  .ant-pagination-item-link,
+:where(.css-dev-only-do-not-override-17a39f8).ant-pagination
+  .ant-pagination-prev
+  .ant-pagination-item-link,
+:where(.css-dev-only-do-not-override-17a39f8).ant-pagination
+  .ant-pagination-next
+  .ant-pagination-item-link {
+  font-size: 25px;
+  font-weight: 700;
+  color: #ff8303;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-pagination
+  .ant-pagination-item
+  a {
+  background-color: #ff8303;
+  border: none;
+  outline: none;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-pagination
+  .ant-pagination-item-active
+  a {
+  color: white;
+}
+
+:where(
+    .css-dev-only-do-not-override-17a39f8
+  ).ant-menu-dark.ant-menu-root.ant-menu-inline,
+:where(.css-dev-only-do-not-override-17a39f8).ant-menu-dark
+  > .ant-menu.ant-menu-root.ant-menu-inline,
+:where(
+    .css-dev-only-do-not-override-17a39f8
+  ).ant-menu-dark.ant-menu-root.ant-menu-vertical,
+:where(.css-dev-only-do-not-override-17a39f8).ant-menu-dark
+  > .ant-menu.ant-menu-root.ant-menu-vertical {
+  background-color: transparent;
+  font-family: "Inconsolata" !important;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-menu-dark
+  .ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-17a39f8).ant-menu-dark
+  > .ant-menu
+  .ant-menu-item-selected {
+  background-color: #ff8303;
+  font-family: "Inconsolata" !important;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-modal .ant-modal-content {
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.9px);
+  -webkit-backdrop-filter: blur(8.9px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-modal .ant-modal-title {
+  background-color: #32312e !important;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-input {
+  background-color: #32312e !important;
+  padding: 10px;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-modal {
+  top: 15px !important;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-btn-default,
+:where(.css-dev-only-do-not-override-17a39f8).ant-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: #ff8303;
+  border: 1px solid #32312e;
+  border-radius: 15px;
+  cursor: pointer;
+  color: white;
+}
 li {
   list-style-type: none;
 }
@@ -29,4 +190,88 @@ a {
   max-width: 1230px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.skills__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card-main {
+  background-color: #32312e;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  gap: 15pxlink__to__project;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-modal .ant-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: white;
+}
+
+.card-header span {
+  color: #ff8303;
+}
+
+.card-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.card-header p {
+  color: #f0e3ca;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.main-description {
+  display: flex;
+  gap: 20px;
+}
+
+.slider-paragraph {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 30px;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-input-group
+  > .ant-input:first-child,
+:where(.css-dev-only-do-not-override-17a39f8).ant-input-group
+  .ant-input-group-addon:first-child {
+  background-color: transparent !important;
+  border-radius: 15px;
+  font-size: 15px;
+}
+
+::placeholder {
+  color: white !important;
+}
+
+.main-description button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: #ff8303;
+  border: 1px solid #32312e;
+  border-radius: 15px;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  color: white;
 }
