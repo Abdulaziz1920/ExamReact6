@@ -8,7 +8,7 @@ interface typeContact {
 }
 
 function Contact() {
-  const sendMessages = (e) => {
+  const sendMessages = (e: React.FormEvent) => {
     e.preventDefault();
   };
   const contactUser: typeContact[] = [
