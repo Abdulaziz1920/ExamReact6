@@ -94,7 +94,7 @@ const Dashboard = () => {
               label: <Link to="admin/work">Work</Link>,
             },
             {
-              key: "work",
+              key: "logout",
               icon: (
                 <i
                   className="fa-solid fa-arrow-right-from-bracket"
