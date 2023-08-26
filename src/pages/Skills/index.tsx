@@ -8,22 +8,22 @@ interface typeSkills {
 }
 
 function Skills() {
-  const dataset = {
-    HTML5: "/public/html.svg",
-    Javascript: "/public/js.png",
-    CSS: "/public/css.png",
-    SASS: "/public/sass.png",
-    Git: "/public/git.png",
-    Github: "/public/github.png",
-    AJAX: "/public/ajax.png",
-    React: "/public/react.png",
-    RTK_Query: "/public/redux.png",
-    NextJS: "/public/next.png",
-    Typescript: "/public/ts.png",
-    Gulp: "/public/gulpp.png",
-    Webpack: "/public/webpack.png",
-    TailwindCSS: "/public/tailwindcss.png",
-    Bootstrap: "/public/bootstrap-logo-vector.svg",
+  const dataset: Record<string, string> = {
+    HTML5: "/html.svg",
+    Javascript: "/js.png",
+    CSS: "/css.png",
+    SASS: "/sass.png",
+    Git: "/git.png",
+    Github: "/github.png",
+    AJAX: "/ajax.png",
+    React: "/react.png",
+    RTK_Query: "/redux.png",
+    NextJS: "/next.png",
+    Typescript: "/ts.png",
+    Gulp: "/gulpp.png",
+    Webpack: "/webpack.png",
+    TailwindCSS: "/tailwindcss.png",
+    Bootstrap: "/bootstrap-logo-vector.svg",
   };
 
   const getData = async () => {
