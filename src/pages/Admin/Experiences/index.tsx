@@ -4,7 +4,13 @@ import { Modal, Form, Input, Button } from "antd";
 import { Pagination } from "antd";
 
 import request from "../../../server/https_request";
-import typeExperienceAdmin from "../../../types/index";
+
+interface typeExperienceAdmin {
+  workName: string;
+  description: string;
+  companyName: string;
+  _id: string;
+}
 
 const AdminExperiences = () => {
   const [myskills, setMyskills] = useState<typeExperienceAdmin[]>([]);

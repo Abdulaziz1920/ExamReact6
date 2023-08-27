@@ -4,7 +4,11 @@ import { Helmet } from "react-helmet";
 import request from "../../server/https_request";
 import "./experiences.scss";
 
-import typeExperience from "../../types/index";
+interface typeExperience {
+  workName: string;
+  companyName: string;
+  description: string;
+}
 
 function Experiences() {
   const getData = async () => {

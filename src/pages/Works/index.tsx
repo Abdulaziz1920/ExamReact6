@@ -3,9 +3,18 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import request from "../../server/https_request";
-import typeWorking from "../../types/index";
 
 import "./works.scss";
+
+interface typeWorking {
+  name: string;
+  description: string;
+  url: string;
+  photo: {
+    _id: string;
+    name: string;
+  };
+}
 
 function Work() {
   const getData = async () => {

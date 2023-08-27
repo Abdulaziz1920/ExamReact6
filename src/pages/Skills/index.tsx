@@ -2,9 +2,13 @@ import { useQuery } from "react-query";
 import { Helmet } from "react-helmet";
 
 import request from "../../server/https_request";
-import typeSkills from "../../types/index";
 
 import "./skills.scss";
+
+interface typeSkills {
+  name: string;
+  percent: number;
+}
 
 function Skills() {
   const dataset: Record<string, string> = {

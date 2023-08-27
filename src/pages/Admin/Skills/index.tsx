@@ -4,7 +4,12 @@ import { Modal, Form, Input, Button, Progress } from "antd";
 import { Pagination } from "antd";
 
 import request from "../../../server/https_request";
-import typeSkillsAdmin from "../../../types/index";
+
+interface typeSkillsAdmin {
+  _id: string;
+  name: string;
+  percent: number;
+}
 
 const SkillsP = () => {
   const [myskills, setMyskills] = useState<typeSkillsAdmin[]>([]);

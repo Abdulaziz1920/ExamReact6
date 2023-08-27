@@ -2,7 +2,14 @@ import { useEffect, useState, useCallback } from "react";
 import { Modal, Form, Input, Button } from "antd";
 import { Pagination } from "antd";
 import request from "../../../server/https_request";
-import typeWorkingAdmin from "../../../types/index";
+
+interface typeWorkingAdmin {
+  name: string;
+  url: string;
+  description: string;
+  _id: string;
+  image: string;
+}
 
 const AdminWork = () => {
   const [myskills, setMyskills] = useState<typeWorkingAdmin[]>([]);

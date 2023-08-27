@@ -4,7 +4,13 @@ import { Modal, Form, Input, Button } from "antd";
 import { Pagination } from "antd";
 
 import request from "../../../server/https_request";
-import typeEducationAdmin from "../../../types/index";
+
+interface typeEducationAdmin {
+  level: string;
+  name: string;
+  description: string;
+  _id: string;
+}
 
 const SkillsP = () => {
   const { Search } = Input;

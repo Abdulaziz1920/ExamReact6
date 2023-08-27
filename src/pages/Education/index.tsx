@@ -2,9 +2,16 @@ import { useQuery } from "react-query";
 import { Helmet } from "react-helmet";
 
 import request from "../../server/https_request";
-import typeEducation from "../../types/index";
 
 import "./education.scss";
+
+interface typeEducation {
+  name: string;
+  description: string;
+  level: string;
+  startDate: string;
+  endDate: string;
+}
 
 function Education() {
   const getData = async () => {
