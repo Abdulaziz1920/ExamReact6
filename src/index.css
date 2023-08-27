@@ -61,7 +61,6 @@ a {
   font-size: 20px;
   color: white;
   text-align: center;
-
 }
 
 .skills__container {
@@ -179,7 +178,7 @@ input {
 }
 
 .ant-layout-content {
-  margin: 0 !important !important;
+  margin: 0 !important;
   height: calc(100vh - 64px) !important;
   font-family: "Inconsolata" !important;
   overflow: scroll !important;
