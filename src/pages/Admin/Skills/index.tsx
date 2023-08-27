@@ -7,18 +7,18 @@ import request from "../../../server/https_request";
 import typeSkillsAdmin from "../../../types/index";
 
 const SkillsP = () => {
-  const { Search } = Input;
-  const [search, setSearch] = useState("");
   const [myskills, setMyskills] = useState<typeSkillsAdmin[]>([]);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(7);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+  const { Search } = Input;
   const [form] = Form.useForm();
 
   console.log(setPageSize);
 
-  const getSkills = useCallback(async () => {
+  const getData = useCallback(async () => {
     try {
       const { data } = await request.get(
         `skills?user=64df214c47c39400140004d9&limit=50`
@@ -31,8 +31,8 @@ const SkillsP = () => {
   }, []);
 
   useEffect(() => {
-    getSkills();
-  }, [getSkills]);
+    getData();
+  }, [getData]);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -46,13 +46,13 @@ const SkillsP = () => {
     try {
       const values = await form.validateFields();
       if (selected) {
-        await request.put(`skills/${selected}, values`);
+        await request.put(`skills/${selected}`, values);
       } else {
         await request.post("skills", values);
       }
       form.resetFields();
       hideModal();
-      getSkills();
+      getData();
     } catch (err) {
       console.error("Submit error:", err);
     }
@@ -61,6 +61,7 @@ const SkillsP = () => {
   async function editTeacher(id: string) {
     const { data } = await request.get(`skills/${id}`);
     form.setFieldsValue(data);
+    console.log(data);
     setSelected(id);
     showModal();
   }
@@ -80,7 +81,7 @@ const SkillsP = () => {
     setCurrentPage(page);
   };
 
-  const paginatedTeachers = filteredProduct.slice(
+  const data = filteredProduct.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
@@ -91,7 +92,7 @@ const SkillsP = () => {
       onOk: async () => {
         try {
           await request.delete(`skills/${id}`);
-          getSkills();
+          getData();
         } catch (err) {
           console.log(err);
         }
@@ -163,7 +164,7 @@ const SkillsP = () => {
                 </tr>
               </thead>
               <tbody>
-                {paginatedTeachers?.map((el) => {
+                {data?.map((el) => {
                   return (
                     <>
                       <tr className="table_information">

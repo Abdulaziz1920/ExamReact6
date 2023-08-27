@@ -37,3 +37,25 @@ export default interface typeSkillsAdmin {
   name: string;
   percent: number;
 }
+
+export default interface typeEducationAdmin {
+  level: string;
+  name: string;
+  description: string;
+  _id: string;
+}
+
+export default interface typeExperienceAdmin {
+  workName: string;
+  description: string;
+  companyName: string;
+  _id: string;
+}
+
+export default interface typeWorkingAdmin {
+  name: string;
+  url: string;
+  description: string;
+  _id: string;
+  image: string;
+}

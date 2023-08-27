@@ -1,24 +1,22 @@
 import { useEffect, useState, useCallback } from "react";
+
 import { Modal, Form, Input, Button } from "antd";
 import { Pagination } from "antd";
+
 import request from "../../../server/https_request";
-interface SkillsType {
-  level: string;
-  name: string;
-  description: string;
-  _id: string;
-}
+import typeEducationAdmin from "../../../types/index";
 
 const SkillsP = () => {
   const { Search } = Input;
-  const [search, setSearch] = useState("");
-  const [form] = Form.useForm();
-  const [myskills, setMyskills] = useState<SkillsType[]>([]);
+  const [myskills, setMyskills] = useState<typeEducationAdmin[]>([]);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(6);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+  const [form] = Form.useForm();
   console.log(setPageSize);
+
   const getData = useCallback(async () => {
     try {
       const { data } = await request.get(
@@ -45,7 +43,7 @@ const SkillsP = () => {
     try {
       const values = await form.validateFields();
       if (selected) {
-        await request.put(`education/${selected}, values`);
+        await request.put(`education/${selected}`, values);
       } else {
         await request.post("education", values);
       }
@@ -79,7 +77,7 @@ const SkillsP = () => {
     setCurrentPage(page);
   };
 
-  const paginatedTeachers = filteredProduct.slice(
+  const data = filteredProduct.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
@@ -197,7 +195,7 @@ const SkillsP = () => {
                 </tr>
               </thead>
               <tbody>
-                {paginatedTeachers?.map((el) => {
+                {data?.map((el) => {
                   return (
                     <>
                       <tr className="table_information">

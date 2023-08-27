@@ -1,26 +1,23 @@
 import { useEffect, useState, useCallback } from "react";
+
 import { Modal, Form, Input, Button } from "antd";
 import { Pagination } from "antd";
-import request from "../../../server/https_request";
 
-interface ExpType {
-  workName: string;
-  description: string;
-  companyName: string;
-  _id: string;
-}
+import request from "../../../server/https_request";
+import typeExperienceAdmin from "../../../types/index";
 
 const AdminExperiences = () => {
-  const { Search } = Input;
-  const [search, setSearch] = useState("");
-  const [form] = Form.useForm();
-  const [myskills, setMyskills] = useState<ExpType[]>([]);
+  const [myskills, setMyskills] = useState<typeExperienceAdmin[]>([]);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(6);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+  const [form] = Form.useForm();
+  const { Search } = Input;
   console.log(setPageSize);
-  const getSkills = useCallback(async () => {
+
+  const getData = useCallback(async () => {
     try {
       const { data } = await request.get(
         `experiences?user=64df214c47c39400140004d9`
@@ -32,8 +29,8 @@ const AdminExperiences = () => {
   }, []);
 
   useEffect(() => {
-    getSkills();
-  }, [getSkills]);
+    getData();
+  }, [getData]);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -46,13 +43,13 @@ const AdminExperiences = () => {
     try {
       const values = await form.validateFields();
       if (selected) {
-        await request.put(`experiences/${selected}, values`);
+        await request.put(`experiences/${selected}`, values);
       } else {
         await request.post("skills", values);
       }
       form.resetFields();
       hideModal();
-      getSkills();
+      getData();
     } catch (err) {
       console.error("Submit error:", err);
     }
@@ -82,7 +79,7 @@ const AdminExperiences = () => {
     setCurrentPage(page);
   };
 
-  const paginatedTeachers = filteredProduct.slice(
+  const data = filteredProduct.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
@@ -93,7 +90,7 @@ const AdminExperiences = () => {
       onOk: async () => {
         try {
           await request.delete(`experiences/${id}`);
-          getSkills();
+          getData();
         } catch (err) {
           console.log(err);
         }
@@ -188,41 +185,45 @@ const AdminExperiences = () => {
             </Form.Item>
           </Form>
         </Modal>
-        <section className="skills">
-          <div className="skills__container grid">
-            {paginatedTeachers?.map((pr) => (
-              <div key={pr._id} className="admin__skills">
-                <div className="card-main">
-                  <div className="info">
-                    <div className="card-header">
-                      <h1>
-                        <span>Work name:</span> {pr.workName}
-                      </h1>
-                      <p>
-                        <span>Company name:</span> {pr.companyName}
-                      </p>
-                      <p style={{ textAlign: "justify" }}>
-                        <span>Description:</span> {pr.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="main-description">
-                    <Button
-                      onClick={() => editItems(pr._id)}
-                      className="tag__item"
-                    >
-                      <i className="fa-solid fa-pencil"></i>
-                    </Button>
-                    <Button
-                      onClick={() => deleteItems(pr._id)}
-                      className="tag__item"
-                    >
-                      <i className="fa-solid fa-trash-can"></i>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
+        <section className="admin">
+          <div className="admin__container">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Work</th>
+                  <th>Company</th>
+                  <th>Description</th>
+                  <th>Settings</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data?.map((el) => {
+                  return (
+                    <>
+                      <tr className="table_information">
+                        <td>{el.workName}</td>
+                        <td>{el.companyName} </td>
+                        <td>{el.description} </td>
+                        <td className="action">
+                          <Button
+                            onClick={() => editItems(el._id)}
+                            className="tag__item"
+                          >
+                            <i className="fa-solid fa-pencil"></i>
+                          </Button>
+                          <Button
+                            onClick={() => deleteItems(el._id)}
+                            className="tag__item"
+                          >
+                            <i className="fa-solid fa-trash-can"></i>
+                          </Button>
+                        </td>
+                      </tr>
+                    </>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </section>
         <div

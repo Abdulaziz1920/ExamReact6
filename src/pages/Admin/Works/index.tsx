@@ -2,25 +2,19 @@ import { useEffect, useState, useCallback } from "react";
 import { Modal, Form, Input, Button } from "antd";
 import { Pagination } from "antd";
 import request from "../../../server/https_request";
-
-interface ExpType {
-  name: string;
-  url: string;
-  description: string;
-  _id: string;
-  image: string;
-}
+import typeWorkingAdmin from "../../../types/index";
 
 const AdminWork = () => {
-  const { Search } = Input;
-  const [search, setSearch] = useState("");
-  const [form] = Form.useForm();
-  const [myskills, setMyskills] = useState<ExpType[]>([]);
+  const [myskills, setMyskills] = useState<typeWorkingAdmin[]>([]);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(6);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+  const { Search } = Input;
+  const [form] = Form.useForm();
   console.log(setPageSize);
+
   const getSkills = useCallback(async () => {
     try {
       const { data } = await request.get(`portfolios`);
@@ -81,7 +75,7 @@ const AdminWork = () => {
     setCurrentPage(page);
   };
 
-  const paginatedTeachers = filteredProduct.slice(
+  const data = filteredProduct.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
@@ -99,6 +93,11 @@ const AdminWork = () => {
       },
     });
   }
+
+  const dataset: Record<string, string> = {
+    ReactJs: "/src/assets/react.svg",
+  };
+
   return (
     <section className="slider">
       <div className="container">
@@ -175,39 +174,49 @@ const AdminWork = () => {
             </Form.Item>
           </Form>
         </Modal>
-        <section className="skills">
-          <div className="skills__container grid">
-            {paginatedTeachers?.map((pr) => (
-              <div key={pr._id} className="admin__skills">
-                <div className="card-main">
-                  <div className="info">
-                    <div className="card-header">
-                      <h1>
-                        <span>Project name:</span> {pr.name}
-                      </h1>
-                      <p>
-                        <span>Description: </span>
-                        {pr.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="main-description">
-                    <Button
-                      onClick={() => editItems(pr._id)}
-                      className="tag__item"
-                    >
-                      <i className="fa-solid fa-pencil"></i>
-                    </Button>
-                    <Button
-                      onClick={() => deleteItems(pr._id)}
-                      className="tag__item"
-                    >
-                      <i className="fa-solid fa-trash-can"></i>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
+        <section className="admin">
+          <div className="admin__container">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Project name</th>
+                  <th>Made it</th>
+                  <th>Settings</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data?.map((el) => {
+                  return (
+                    <>
+                      <tr className="table_information">
+                        <td>{el.name}</td>
+                        <td>
+                          <img
+                            width={40}
+                            src={dataset[el.description]}
+                            alt=""
+                          />
+                        </td>
+                        <td className="action">
+                          <Button
+                            onClick={() => editItems(el._id)}
+                            className="tag__item"
+                          >
+                            <i className="fa-solid fa-pencil"></i>
+                          </Button>
+                          <Button
+                            onClick={() => deleteItems(el._id)}
+                            className="tag__item"
+                          >
+                            <i className="fa-solid fa-trash-can"></i>
+                          </Button>
+                        </td>
+                      </tr>
+                    </>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </section>
         <div
