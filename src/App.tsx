@@ -7,7 +7,6 @@ import Education from "./pages/Education";
 import Messages from "./pages/Messages";
 import Main from "./pages/Main";
 import Contact from "./pages/Contact";
-import About from "./pages/About";
 import MyWorks from "./pages/Works";
 import isAuth from "./states";
 import Dashboard from "./pages/Admin/Dashboard/Dashboard";
@@ -27,7 +26,6 @@ function App() {
         />
         <Route path="/" element={<Layout />}>
           <Route path="main" element={<Main />} />
-          <Route path="about" element={<About />} />
           <Route path="experiences" element={<Experiences />} />
           <Route path="my-works" element={<MyWorks />} />
           <Route path="skills" element={<Skills />} />

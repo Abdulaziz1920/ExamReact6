@@ -1,11 +1,10 @@
 import { useQuery } from "react-query";
-import request from "../../server/https_request";
-import "./skills.scss";
+import { Helmet } from "react-helmet";
 
-interface typeSkills {
-  name: string;
-  percent: number;
-}
+import request from "../../server/https_request";
+import typeSkills from "../../types/index";
+
+import "./skills.scss";
 
 function Skills() {
   const dataset: Record<string, string> = {
@@ -40,8 +39,11 @@ function Skills() {
 
   return (
     <section>
+      <Helmet>
+        <title>Skills</title>
+      </Helmet>
       <div className="title">
-        <h1>- My Skills -</h1>
+        <h1>My Skills</h1>
       </div>
       <div className="skills__cards">
         {data?.map(({ name }) => (

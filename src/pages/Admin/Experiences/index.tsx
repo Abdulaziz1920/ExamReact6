@@ -105,7 +105,6 @@ const AdminExperiences = () => {
       <div className="container">
         <div className="slider-paragraph" style={{ marginTop: "40px" }}>
           <Search
-            placeholder="Search experiences..."
             onChange={(e) => setSearch(e.target.value)}
             value={search}
             className="search"
@@ -137,7 +136,7 @@ const AdminExperiences = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="Frontend developer :)" />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="companyName"
@@ -149,7 +148,7 @@ const AdminExperiences = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="Google :)" />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="description"
@@ -161,7 +160,7 @@ const AdminExperiences = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="It's very good :)" />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="startDate"
@@ -173,7 +172,7 @@ const AdminExperiences = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="Enter start date" />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="endDate"
@@ -185,7 +184,7 @@ const AdminExperiences = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="Enter end date" />
+              <Input type="text" />
             </Form.Item>
           </Form>
         </Modal>

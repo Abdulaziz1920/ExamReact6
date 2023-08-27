@@ -1,4 +1,5 @@
 import "./contact.scss";
+import { Helmet } from "react-helmet";
 
 interface typeContact {
   img: string;
@@ -39,6 +40,9 @@ function Contact() {
   ];
   return (
     <section>
+      <Helmet>
+        <title>Contact</title>
+      </Helmet>
       <div className="contact">
         <h1>- Contact -</h1>
         <div className="user__contact">

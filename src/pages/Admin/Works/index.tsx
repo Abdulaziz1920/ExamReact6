@@ -104,7 +104,6 @@ const AdminWork = () => {
       <div className="container">
         <div className="slider-paragraph" style={{ marginTop: "40px" }}>
           <Search
-            placeholder="Search portfolio..."
             onChange={(e) => setSearch(e.target.value)}
             value={search}
             className="search"
@@ -136,7 +135,7 @@ const AdminWork = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="Game Guard" />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="url"
@@ -148,7 +147,7 @@ const AdminWork = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="www.gameuz.com" />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="description"
@@ -160,7 +159,7 @@ const AdminWork = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="It's very good :)" />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="image"
@@ -172,7 +171,7 @@ const AdminWork = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="Link image" />
+              <Input type="text" />
             </Form.Item>
           </Form>
         </Modal>

@@ -27,14 +27,16 @@
     backdrop-filter: blur(14.6px);
     -webkit-backdrop-filter: blur(14.6px);
     img {
-      filter: grayscale(100%);
-      transition: 0.3s;
+      filter: blur(var(--value, 1rem));
+      --value: 4px;
+      transition: 0.3s !important;
     }
     h2 {
       font-size: 32px;
       font-weight: 400;
       color: #fff;
       text-align: center;
+      transition: 0.3s !important;
     }
     p {
       font-size: 24px;
@@ -43,11 +45,12 @@
       text-align: center;
     }
     &:hover img {
-      filter: grayscale(0%);
-      transition: 0.3s;
+      filter: blur(0);
+      transition: 0.3s !important;
     }
     &:hover h2 {
       color: #ff8303;
+      transition: 0.3s !important;
     }
   }
 }

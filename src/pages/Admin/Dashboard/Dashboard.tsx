@@ -25,7 +25,6 @@ const Dashboard = () => {
     const { data } = await request.get("/auth/me");
     setUsername(data.username);
   };
-  console.log(username);
   userAuth();
   return (
     <Layout>

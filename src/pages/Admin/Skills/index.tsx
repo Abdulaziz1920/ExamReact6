@@ -1,29 +1,30 @@
 import { useEffect, useState, useCallback } from "react";
-import { Modal, Form, Input, Button } from "antd";
+
+import { Modal, Form, Input, Button, Progress } from "antd";
 import { Pagination } from "antd";
+
 import request from "../../../server/https_request";
-interface SkillsType {
-  _id: string;
-  name: string;
-  percent: number;
-}
+import typeSkillsAdmin from "../../../types/index";
 
 const SkillsP = () => {
   const { Search } = Input;
   const [search, setSearch] = useState("");
-  const [form] = Form.useForm();
-  const [myskills, setMyskills] = useState<SkillsType[]>([]);
+  const [myskills, setMyskills] = useState<typeSkillsAdmin[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(6);
+  const [pageSize, setPageSize] = useState(7);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
+  const [form] = Form.useForm();
+
   console.log(setPageSize);
+
   const getSkills = useCallback(async () => {
     try {
       const { data } = await request.get(
-        `skills?user=64df214c47c39400140004d9`
+        `skills?user=64df214c47c39400140004d9&limit=50`
       );
       setMyskills(data.data);
+      console.log(data);
     } catch (err) {
       console.log(err);
     }
@@ -36,6 +37,7 @@ const SkillsP = () => {
   const showModal = () => {
     setIsModalOpen(true);
   };
+
   const hideModal = () => {
     setIsModalOpen(false);
   };
@@ -58,7 +60,6 @@ const SkillsP = () => {
 
   async function editTeacher(id: string) {
     const { data } = await request.get(`skills/${id}`);
-    console.log(data);
     form.setFieldsValue(data);
     setSelected(id);
     showModal();
@@ -97,15 +98,16 @@ const SkillsP = () => {
       },
     });
   }
+
   return (
     <section className="slider">
       <div className="container">
         <div className="slider-paragraph" style={{ marginTop: "40px" }}>
           <Search
-            placeholder="Search skills..."
             onChange={(e) => setSearch(e.target.value)}
             value={search}
             className="search"
+            placeholder="Search..."
           />
           <Button onClick={openModal}>Add</Button>
         </div>
@@ -134,7 +136,7 @@ const SkillsP = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="Angular JS" />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="percent"
@@ -146,36 +148,49 @@ const SkillsP = () => {
                 },
               ]}
             >
-              <Input type="number" placeholder="99.9% :)" />
+              <Input type="number" />
             </Form.Item>
           </Form>
         </Modal>
-        <section className="skills">
-          <div className="skills__container grid">
-            {paginatedTeachers?.map((pr) => (
-              <div key={pr._id} className="admin__skills">
-                <div className="card-main">
-                  <div className="card-header">
-                    <h1><span>Skill name:</span> {pr.name}</h1>
-                    <p><span>Percent:</span> {pr.percent}</p>
-                  </div>
-                  <div className="main-description">
-                    <Button
-                      onClick={() => editTeacher(pr._id)}
-                      className="tag__item"
-                    >
-                      <i className="fa-solid fa-pencil"></i>
-                    </Button>
-                    <Button
-                      onClick={() => deleteTeacher(pr._id)}
-                      className="tag__item"
-                    >
-                      <i className="fa-solid fa-trash-can"></i>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
+        <section className="admin">
+          <div className="admin__container">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Skill name</th>
+                  <th>Knowledge percent</th>
+                  <th>Settings</th>
+                </tr>
+              </thead>
+              <tbody>
+                {paginatedTeachers?.map((el) => {
+                  return (
+                    <>
+                      <tr className="table_information">
+                        <td>{el.name}</td>
+                        <td>
+                          <Progress percent={el.percent} size="small" />
+                        </td>
+                        <td className="action">
+                          <Button
+                            onClick={() => editTeacher(el._id)}
+                            className="tag__item"
+                          >
+                            <i className="fa-solid fa-pencil"></i>
+                          </Button>
+                          <Button
+                            onClick={() => deleteTeacher(el._id)}
+                            className="tag__item"
+                          >
+                            <i className="fa-solid fa-trash-can"></i>
+                          </Button>
+                        </td>
+                      </tr>
+                    </>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </section>
         <div

@@ -1,9 +1,13 @@
 import "./main.scss";
+import { Helmet } from "react-helmet";
 
 function Main() {
   return (
     <>
       <section id="illustrations">
+        <Helmet>
+          <title>Home</title>
+        </Helmet>
         <div className="main">
           <div className="main__user__about">
             <h1>Abdulaziz Allambergenov</h1>

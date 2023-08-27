@@ -12,11 +12,14 @@
     justify-content: start;
     gap: 32px;
     .information {
-    padding-bottom: 20px;
+      padding-bottom: 20px;
       .items {
         display: flex;
         flex-direction: column;
         gap: 10px;
+        span {
+          color: #ff8303;
+        }
         h2 {
           font-size: 32px;
           font-weight: 700;

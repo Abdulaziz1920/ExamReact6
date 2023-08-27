@@ -11,26 +11,171 @@
   box-sizing: border-box;
 }
 
-:where(.css-dev-only-do-not-override-17a39f8).ant-layout .ant-layout-header,
-:where(.css-dev-only-do-not-override-17a39f8).ant-layout.ant-layout-footer {
-  background-color: #21201d !important;
-}
-
-:where(.css-dev-only-do-not-override-17a39f8)[class^="ant-layout"]
-  [class^="ant-layout"],
-:where(.css-dev-only-do-not-override-17a39f8)[class*=" ant-layout"]
-  [class^="ant-layout"],
-:where(.css-dev-only-do-not-override-17a39f8)[class^="ant-layout"]
-  [class*=" ant-layout"],
-:where(.css-dev-only-do-not-override-17a39f8)[class*=" ant-layout"]
-  [class*=" ant-layout"] {
-  background-color: #21201d !important;
-  font-family: "Inconsolata" !important;
-}
 body {
-  font-family: "Inconsolata" !important;
+  font-family: "Inconsolata";
   background-color: #21201d;
   user-select: none;
+  overflow-x: hidden !important;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+  border: none;
+}
+
+.table th {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ff8303;
+  padding: 15px;
+  border: none;
+  text-align: start;
+  text-align: center;
+}
+
+.table_information:nth-child(odd) {
+  background-color: #323c50;
+}
+
+.table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  border: none;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+
+}
+
+.skills__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.card-main {
+  background-color: #32312e;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  gap: 15px;
+}
+
+.fls {
+  max-width: 200px;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 900;
+  color: #ff8303;
+  text-align: center;
+  font-family: "Inconsolata" !important;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: white;
+}
+
+.card-header span {
+  color: #ff8303;
+}
+
+.card-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.card-header p {
+  color: #f0e3ca;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.main-description {
+  display: flex;
+  gap: 20px;
+}
+
+.slider-paragraph {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 30px;
+  align-items: center;
+}
+
+.slider-paragraph .search ::placeholder {
+  color: white;
+}
+
+.main-description button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: #ff8303;
+  border: 1px solid #32312e;
+  border-radius: 15px;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #ff8303);
+  border-radius: 12px;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-modal .ant-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input {
+  color: white !important;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-input-group
+  > .ant-input:first-child,
+:where(.css-dev-only-do-not-override-17a39f8).ant-input-group
+  .ant-input-group-addon:first-child {
+  background-color: transparent !important;
+  border-radius: 15px;
+  font-size: 15px;
 }
 
 .ant-layout-content {
@@ -42,16 +187,6 @@ body {
 
 .category-image .ant-upload-select {
   width: 100% !important;
-  font-family: "Inconsolata" !important;
-}
-
-.fls {
-  max-width: 200px;
-  padding: 10px 0;
-  font-size: 18px;
-  font-weight: 900;
-  color: #ff8303;
-  text-align: center;
   font-family: "Inconsolata" !important;
 }
 
@@ -143,6 +278,7 @@ body {
 :where(.css-dev-only-do-not-override-17a39f8).ant-modal .ant-modal-content {
   background: rgba(255, 255, 255, 0.13);
   border-radius: 16px;
+  color: red;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8.9px);
   -webkit-backdrop-filter: blur(8.9px);
@@ -165,6 +301,40 @@ body {
   top: 15px !important;
 }
 
+:where(.css-dev-only-do-not-override-17a39f8).ant-layout .ant-layout-header,
+:where(.css-dev-only-do-not-override-17a39f8).ant-layout.ant-layout-footer {
+  background-color: #21201d !important;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-modal-confirm
+  .ant-modal-confirm-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8)[class^="ant-layout"]
+  [class^="ant-layout"],
+:where(.css-dev-only-do-not-override-17a39f8)[class*=" ant-layout"]
+  [class^="ant-layout"],
+:where(.css-dev-only-do-not-override-17a39f8)[class^="ant-layout"]
+  [class*=" ant-layout"],
+:where(.css-dev-only-do-not-override-17a39f8)[class*=" ant-layout"]
+  [class*=" ant-layout"] {
+  background-color: #21201d !important;
+  font-family: "Inconsolata" !important;
+  overflow-x: hidden !important;
+}
+:where(.css-dev-only-do-not-override-17a39f8).ant-progress .ant-progress-text {
+  color: white;
+}
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-modal-root .ant-modal-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 :where(.css-dev-only-do-not-override-17a39f8).ant-btn-default,
 :where(.css-dev-only-do-not-override-17a39f8).ant-btn-primary {
   display: flex;
@@ -176,102 +346,5 @@ body {
   border: 1px solid #32312e;
   border-radius: 15px;
   cursor: pointer;
-  color: white;
-}
-li {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-.container {
-  max-width: 1230px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-.skills__container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.card-main {
-  background-color: #32312e;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 15px;
-  gap: 15pxlink__to__project;
-}
-
-:where(.css-dev-only-do-not-override-17a39f8).ant-modal .ant-modal-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.card-header {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  color: white;
-}
-
-.card-header span {
-  color: #ff8303;
-}
-
-.card-header h1 {
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.card-header p {
-  color: #f0e3ca;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.main-description {
-  display: flex;
-  gap: 20px;
-}
-
-.slider-paragraph {
-  display: flex;
-  gap: 15px;
-  padding-bottom: 30px;
-}
-
-:where(.css-dev-only-do-not-override-17a39f8).ant-input-group
-  > .ant-input:first-child,
-:where(.css-dev-only-do-not-override-17a39f8).ant-input-group
-  .ant-input-group-addon:first-child {
-  background-color: transparent !important;
-  border-radius: 15px;
-  font-size: 15px;
-}
-
-::placeholder {
-  color: white !important;
-}
-
-.main-description button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  border-radius: 4px;
-  background-color: #ff8303;
-  border: 1px solid #32312e;
-  border-radius: 15px;
-  cursor: pointer;
-  color: white;
-  width: 100%;
   color: white;
 }

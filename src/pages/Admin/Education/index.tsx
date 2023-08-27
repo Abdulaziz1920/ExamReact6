@@ -19,7 +19,7 @@ const SkillsP = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   console.log(setPageSize);
-  const getSkills = useCallback(async () => {
+  const getData = useCallback(async () => {
     try {
       const { data } = await request.get(
         `education?user=64df214c47c39400140004d9`
@@ -31,8 +31,8 @@ const SkillsP = () => {
   }, []);
 
   useEffect(() => {
-    getSkills();
-  }, [getSkills]);
+    getData();
+  }, [getData]);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -47,11 +47,11 @@ const SkillsP = () => {
       if (selected) {
         await request.put(`education/${selected}, values`);
       } else {
-        await request.post("skills", values);
+        await request.post("education", values);
       }
       form.resetFields();
       hideModal();
-      getSkills();
+      getData();
     } catch (err) {
       console.error("Submit error:", err);
     }
@@ -90,7 +90,7 @@ const SkillsP = () => {
       onOk: async () => {
         try {
           await request.delete(`education/${id}`);
-          getSkills();
+          getData();
         } catch (err) {
           console.log(err);
         }
@@ -102,7 +102,6 @@ const SkillsP = () => {
       <div className="container">
         <div className="slider-paragraph" style={{ marginTop: "40px" }}>
           <Search
-            placeholder="Search education..."
             onChange={(e) => setSearch(e.target.value)}
             value={search}
             className="search"
@@ -134,10 +133,7 @@ const SkillsP = () => {
                 },
               ]}
             >
-              <Input
-                type="text"
-                placeholder="Natinal University of Uzbekistan"
-              />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="level"
@@ -149,7 +145,7 @@ const SkillsP = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="High" />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="description"
@@ -161,7 +157,7 @@ const SkillsP = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="History" />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="startDate"
@@ -173,7 +169,7 @@ const SkillsP = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="Enter start date" />
+              <Input type="text" />
             </Form.Item>
             <Form.Item
               name="endDate"
@@ -185,37 +181,49 @@ const SkillsP = () => {
                 },
               ]}
             >
-              <Input type="text" placeholder="Enter end date" />
+              <Input type="text" />
             </Form.Item>
           </Form>
         </Modal>
-        <section className="skills">
-          <div className="skills__container grid">
-            {paginatedTeachers?.map((pr) => (
-              <div key={pr._id} className="admin__skills">
-                <div className="card-main">
-                  <div className="card-header">
-                    <h1><span>University name:</span> {pr.name}</h1>
-                    <p><span>Level:</span> {pr.level}</p>
-                    <p><span>Faculty:</span> {pr.description}</p>
-                  </div>
-                  <div className="main-description">
-                    <Button
-                      onClick={() => editItems(pr._id)}
-                      className="tag__item"
-                    >
-                      <i className="fa-solid fa-pencil"></i>
-                    </Button>
-                    <Button
-                      onClick={() => deleteItems(pr._id)}
-                      className="tag__item"
-                    >
-                      <i className="fa-solid fa-trash-can"></i>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
+        <section className="admin">
+          <div className="admin__container">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>University name</th>
+                  <th>Level</th>
+                  <th>Faculty</th>
+                  <th>Settings</th>
+                </tr>
+              </thead>
+              <tbody>
+                {paginatedTeachers?.map((el) => {
+                  return (
+                    <>
+                      <tr className="table_information">
+                        <td>{el.name}</td>
+                        <td>{el.level} </td>
+                        <td>{el.description} </td>
+                        <td className="action">
+                          <Button
+                            onClick={() => editItems(el._id)}
+                            className="tag__item"
+                          >
+                            <i className="fa-solid fa-pencil"></i>
+                          </Button>
+                          <Button
+                            onClick={() => deleteItems(el._id)}
+                            className="tag__item"
+                          >
+                            <i className="fa-solid fa-trash-can"></i>
+                          </Button>
+                        </td>
+                      </tr>
+                    </>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </section>
         <div

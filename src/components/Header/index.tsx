@@ -12,15 +12,19 @@ function Header() {
             </Link>
           </div>
           <div className="header__menu">
-            <Link to="about">About me</Link>
             <Link to="skills">Skills</Link>
             <Link to="education">Education</Link>
             <Link to="experiences">Experiences</Link>
             <Link to="my-works">My Works</Link>
             <Link to="contact">Contact</Link>
-            <a download="CV Front end" target="blank" href="/CV Front end.pdf">
-              Download CV
-            </a>
+          </div>
+          <div className="header__logout">
+            <Link to="dashboard">
+              <i
+                className="fa-solid fa-user-gear fa-lg"
+                style={{ color: "#ffffff" }}
+              ></i>
+            </Link>
           </div>
         </div>
       </div>
