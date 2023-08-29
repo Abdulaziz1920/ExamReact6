@@ -5,7 +5,6 @@ import Login from "../types";
 import { NavigateFunction } from "react-router-dom";
 import TOKEN from "../constants";
 
-
 interface AuthType {
   isAuthenticated: boolean;
   login: (data: Login, navigate: NavigateFunction) => void;

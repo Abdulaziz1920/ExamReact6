@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import isAuth from "../../states";
-// import * as React from "react";
 import { Formik, Form, Field } from "formik";
 import "./login.scss";
 
@@ -10,15 +9,18 @@ interface MyFormValues {
 }
 
 export const Login = () => {
-  // const [user, setUser] = React.useState<MyFormValues>();
   const { login } = isAuth();
   const navigate = useNavigate();
+  const navigation = useNavigate();
   const initialValues: MyFormValues = {
     username: "",
     password: "",
   };
+  const nav = () => {
+    navigation("/register");
+  };
   return (
-    <section id="form">
+    <section>
       <div className="forms">
         <h1>Login</h1>
         <Formik
@@ -31,7 +33,8 @@ export const Login = () => {
           <Form>
             <Field id="username" name="username" placeholder="Username" />
             <Field id="password" name="password" placeholder="Password" />
-            <button onClick={() => login}>Submit</button>
+            <button onClick={() => login}>Sign up</button>
+            <button onClick={nav}>Register</button>
           </Form>
         </Formik>
       </div>

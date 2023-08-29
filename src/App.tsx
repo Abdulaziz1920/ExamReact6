@@ -14,6 +14,7 @@ import AdminSkills from "./pages/Admin/Skills";
 import AdminEducation from "./pages/Admin/Education";
 import AdminExperinces from "./pages/Admin/Experiences";
 import AdminWork from "./pages/Admin/Works";
+import Register from "./pages/Register";
 
 function App() {
   const { isAuthenticated } = isAuth();
@@ -24,6 +25,7 @@ function App() {
           path="/"
           element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login />}
         />
+        <Route path="register" element={<Register />} />
         <Route path="/" element={<Layout />}>
           <Route path="main" element={<Main />} />
           <Route path="experiences" element={<Experiences />} />
