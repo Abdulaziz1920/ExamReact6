@@ -17,7 +17,7 @@
       font-size: 32px;
       font-weight: 700;
       color: #ff8303;
-    } 
+    }
     p {
       font-size: 16px;
       font-weight: 400;
@@ -32,5 +32,26 @@
       background: #21201d;
       color: white;
     }
+  }
+}
+
+@media (max-width: 966px) {
+  .working__cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .working__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 530px) {
+  .working__cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .working__cards .work__items {
+    max-width: 100%;
   }
 }

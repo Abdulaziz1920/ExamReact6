@@ -80,3 +80,31 @@
     }
   }
 }
+
+@media (max-width: 1030px) {
+  .contact .user__contact {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .contact .user__contact ul {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 1030px) {
+  .contact .user__contact ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .contact .user__contact ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding-bottom: 20px;
+  }
+}
