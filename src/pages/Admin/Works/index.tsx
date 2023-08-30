@@ -48,7 +48,7 @@ const AdminWork = () => {
       if (selected) {
         await request.put(`portfolios/${selected}, values`);
       } else {
-        await request.post("skills", values);
+        await request.post("portfolios", values);
       }
       form.resetFields();
       hideModal();

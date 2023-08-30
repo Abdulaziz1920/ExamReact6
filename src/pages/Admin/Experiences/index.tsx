@@ -51,7 +51,7 @@ const AdminExperiences = () => {
       if (selected) {
         await request.put(`experiences/${selected}`, values);
       } else {
-        await request.post("skills", values);
+        await request.post("experiences", values);
       }
       form.resetFields();
       hideModal();
