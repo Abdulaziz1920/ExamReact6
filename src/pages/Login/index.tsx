@@ -11,13 +11,9 @@ interface MyFormValues {
 export const Login = () => {
   const { login } = isAuth();
   const navigate = useNavigate();
-  const navigation = useNavigate();
   const initialValues: MyFormValues = {
     username: "",
     password: "",
-  };
-  const nav = () => {
-    navigation("/register");
   };
   return (
     <section>
@@ -34,7 +30,6 @@ export const Login = () => {
             <Field id="username" name="username" placeholder="Username" />
             <Field id="password" name="password" placeholder="Password" />
             <button onClick={() => login}>Sign up</button>
-            <button onClick={nav}>Register</button>
           </Form>
         </Formik>
       </div>
